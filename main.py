@@ -1,14 +1,11 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QLineEdit, QPushButton, QListWidget, QListWidgetItem
-from PyQt6.QtGui import QPalette, QColor
+from PyQt6.QtGui import  QColor
 from PyQt6.QtCore import Qt
 
 class ToDoListApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("To-Do List")
-
-        # Настраиваем темный стиль
-        self.set_dark_theme()
 
         # Создаем центральный виджет и layout
         widget = QWidget(self)
@@ -92,28 +89,7 @@ class ToDoListApp(QMainWindow):
         # Устанавливаем layout в основной виджет
         self.setCentralWidget(widget)
 
-    def set_dark_theme(self):
-        """Устанавливаем темную цветовую тему с желтыми элементами"""
-        dark_palette = QPalette()
-        
-        # Цвет фона
-        dark_palette.setColor(QPalette.ColorRole.Window, QColor(26, 26, 26))  # Темный фон
-        dark_palette.setColor(QPalette.ColorRole.WindowText, Qt.GlobalColor.yellow)
 
-        # Цвет кнопок и фона кнопок
-        dark_palette.setColor(QPalette.ColorRole.Button, Qt.GlobalColor.yellow)
-        dark_palette.setColor(QPalette.ColorRole.ButtonText, Qt.GlobalColor.black)
-
-        # Цвет текста и фона
-        dark_palette.setColor(QPalette.ColorRole.Base, QColor(26, 26, 26))  # Цвет фона элементов
-        dark_palette.setColor(QPalette.ColorRole.Text, Qt.GlobalColor.yellow)
-
-        # Цвет выделенных элементов
-        dark_palette.setColor(QPalette.ColorRole.Highlight, Qt.GlobalColor.yellow)
-        dark_palette.setColor(QPalette.ColorRole.HighlightedText, Qt.GlobalColor.black)
-
-        # Применяем палитру к приложению
-        self.setPalette(dark_palette)
 
     def add_task(self):
         """Добавляем задачу в список"""
